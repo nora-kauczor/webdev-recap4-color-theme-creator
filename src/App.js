@@ -1,24 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import React, { useState } from "react";
+import { themes } from "./db.js";
+import { ColorCard } from "./components/ColorCard/ColorCard";
 
 function App() {
+  //
+  const [theme, setTheme] = useState(themes[0]);
+
+  const themeName = theme.name;
+  const primaryColorObject = theme.colors[0];
+  const secondaryColorObject = theme.colors[1];
+  const surfaceColorObject = theme.colors[2];
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <body style={{ borderColor: theme.colors[3].value }}>
+      <h1>Theme Creator</h1>
+      <section>
+        <h2>{themeName}</h2>
+
+        <ColorCard colorObject={primaryColorObject} />
+        <ColorCard colorObject={secondaryColorObject} />
+        <ColorCard colorObject={surfaceColorObject} />
+      </section>
+    </body>
   );
 }
 

@@ -1,0 +1,12 @@
+.color-card-wrapper {
+  display: flex;
+}
+
+.color-description {
+  display: flex;
+  justify-content: column;
+}
+
+.color-description-name {
+  background-color: grey;
+}
