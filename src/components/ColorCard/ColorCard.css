@@ -1,12 +1,29 @@
-.color-card-wrapper {
+.color-card {
+  height: 250px;
+  width: 700px;
+  border-radius: 60px;
+  list-style: none;
   display: flex;
 }
 
 .color-description {
+  background-color: lightgray;
+  width: 300px;
+  padding-left: 30px;
   display: flex;
-  justify-content: column;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
-.color-description-name {
-  background-color: grey;
+.color-description-role {
+  font-size: 30px;
+}
+
+.color-description-hex {
+  font-size: 20px;
+  color: darkgray;
+}
+
+.color-display {
+  width: 440px;
 }

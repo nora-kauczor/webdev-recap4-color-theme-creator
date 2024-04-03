@@ -2,6 +2,7 @@ import "./App.css";
 import React, { useState } from "react";
 import { themes } from "./db.js";
 import { ColorCard } from "./components/ColorCard/ColorCard";
+import "./App.css";
 
 function App() {
   //
@@ -13,16 +14,19 @@ function App() {
   const surfaceColorObject = theme.colors[2];
 
   return (
-    <body style={{ borderColor: theme.colors[3].value }}>
-      <h1>Theme Creator</h1>
-      <section>
-        <h2>{themeName}</h2>
-
+    <main style={{ borderColor: theme.colors[3].value }}>
+      <header>
+        <h1>Theme Creator</h1>
+      </header>
+      <section name="card-container" className="card-container">
+        <h2 name="card-container-name" className="card-container-name">
+          {themeName}
+        </h2>
         <ColorCard colorObject={primaryColorObject} />
         <ColorCard colorObject={secondaryColorObject} />
         <ColorCard colorObject={surfaceColorObject} />
       </section>
-    </body>
+    </main>
   );
 }
 

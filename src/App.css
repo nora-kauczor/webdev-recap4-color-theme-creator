@@ -1,0 +1,29 @@
+@import url(./components/ColorCard/ColorCard.css);
+
+/* declare primary font */
+
+main {
+  height: 1200px;
+  margin: 30px;
+  border: 7px solid;
+  border-radius: 60px;
+}
+
+header {
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 50px;
+}
+
+.card-container {
+  height: 1000px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.card-container-name {
+  font-size: 50px;
+}
