@@ -1,13 +1,17 @@
 .color-card {
   height: 250px;
-  width: 866px;
+  width: 750px;
   list-style: none;
   display: flex;
+  overflow: hidden;
+  border-radius: 50px;
 }
+
+/* die childelemente von color-card ragen über color-card selbst hinaus. deshalb "overflow: hidden", damit sie nicht darüber hinausragen und man der borderradius nicht dahinter versteckt ist. */
 
 .color-description {
   background-color: lightgray;
-  width: 300px;
+  width: 350px;
   padding-left: 30px;
 
   display: flex;
@@ -25,5 +29,5 @@
 }
 
 .color-display {
-  width: 500px;
+  width: 400px;
 }

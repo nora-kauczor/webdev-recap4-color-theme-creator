@@ -1,0 +1,10 @@
+.header {
+  height: 200px;
+  margin: 20px;
+  background-color: lightgray;
+  border-radius: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: var(--primary-font-size);
+}
