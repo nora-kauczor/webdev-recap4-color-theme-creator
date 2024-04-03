@@ -1,5 +1,6 @@
 @import url(./components/ColorCard/ColorCard.css);
 @import url(./components/Header/Header.css);
+@import url(./components/ThemeDisplay/ThemeDisplay.css);
 
 :root {
   font-family: Arial, sans-serif;
@@ -9,16 +10,4 @@
 main {
   height: 1200px;
   margin: 30px;
-}
-
-.card-container {
-  height: 1000px;
-}
-
-.card-container-theme_name {
-  font-size: 80px;
-  /* margin: calc({--color-card-margin}+{--color-card-padding}) */
-  align-self: flex-start;
-  margin: 76px;
-  height: 30px;
 }
