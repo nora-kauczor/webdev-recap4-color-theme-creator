@@ -19,9 +19,13 @@ function App() {
         <h1>Theme Creator</h1>
       </header>
       <section name="card-container" className="card-container">
-        <h2 name="card-container-name" className="card-container-name">
+        <h2
+          name="card-container-theme_name"
+          className="card-container-theme_name"
+        >
           {themeName}
         </h2>
+
         <ColorCard colorObject={primaryColorObject} />
         <ColorCard colorObject={secondaryColorObject} />
         <ColorCard colorObject={surfaceColorObject} />

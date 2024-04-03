@@ -1,7 +1,6 @@
 .color-card {
   height: 250px;
-  width: 700px;
-  border-radius: 60px;
+  width: 866px;
   list-style: none;
   display: flex;
 }
@@ -10,20 +9,21 @@
   background-color: lightgray;
   width: 300px;
   padding-left: 30px;
+
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
 }
 
 .color-description-role {
-  font-size: 30px;
+  font-size: 3rem;
 }
 
 .color-description-hex {
-  font-size: 20px;
+  font-size: 1rem;
   color: darkgray;
 }
 
 .color-display {
-  width: 440px;
+  width: 500px;
 }

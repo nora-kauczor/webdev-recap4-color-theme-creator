@@ -1,6 +1,13 @@
 @import url(./components/ColorCard/ColorCard.css);
 
 /* declare primary font */
+/* make sizes flexible */
+:root {
+  /* General styles for the root element */
+  font-family: Arial, sans-serif;
+  --primary-font-size: 40px;
+  /* --color-card-margin: ; */
+}
 
 main {
   height: 1200px;
@@ -11,19 +18,23 @@ main {
 
 header {
   height: 200px;
+  margin: 20px;
+  background-color: lightgray;
+  border-radius: 60px;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 50px;
+  font-size: var(--primary-font-size);
 }
 
 .card-container {
   height: 1000px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
 }
-.card-container-name {
-  font-size: 50px;
+
+.card-container-theme_name {
+  font-size: 80px;
+  /* margin: calc({--color-card-margin}+{--color-card-padding}) */
+  align-self: flex-start;
+  margin: 76px;
+  height: 30px;
 }

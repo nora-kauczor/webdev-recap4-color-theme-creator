@@ -5,7 +5,7 @@ export function ColorCard({ colorObject }) {
     <ul className="color-card">
       <li name="color-description" className="color-description">
         <h3 name="color-description-role" className="color-description-role">
-          {colorObject.name}
+          {colorObject.role}
         </h3>
         <p name="color-description-hex" className="color-description-hex">
           {colorObject.value}
