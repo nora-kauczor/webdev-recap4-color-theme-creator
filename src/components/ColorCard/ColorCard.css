@@ -2,37 +2,37 @@
   height: 250px;
   width: 750px;
   list-style: none;
+  /* was macht flex hier genau???? */
   display: flex;
-  overflow: hidden;
-  border-radius: 50px;
 }
-
-/* die childelemente von color-card ragen über color-card selbst hinaus. deshalb "overflow: hidden", damit sie nicht darüber hinausragen und man der borderradius nicht dahinter versteckt ist. */
 
 .color-description {
   background-color: lightgray;
-  width: 350px;
+  width: 300px;
   padding-left: 30px;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+  overflow: hidden;
+  margin: 0, 0;
+  border-radius: 50px 0 0 50px;
 }
 
 .color-description-role {
   font-size: 3rem;
+  margin: 7 0 0 0;
 }
 
 .color-description-hex {
   font-size: 1rem;
+
   color: darkgray;
 }
 
-.color-display {
+.color-display--details {
   width: 400px;
+  border-radius: 0 50px 50px 0;
 }
 
 .color-display--preview {
-  width: 100px;
-  height: 100px;
+  width: 200px;
+  height: 200px;
+  border-radius: 60px;
 }

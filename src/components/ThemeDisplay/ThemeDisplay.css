@@ -1,10 +1,16 @@
+.card-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .card-container-header {
   display: flex;
+  flex-direction: row;
 }
 
 .card-container-header-name {
   font-size: 80px;
-  align-self: flex-start;
   margin: 76px;
   height: 30px;
 }
@@ -13,6 +19,9 @@
   font-size: 50px;
   width: 100px;
   height: 100px;
+  padding: 0 0;
+  margin-top: 55px;
+  margin-right: 70px;
 }
 
 .card-container-colors--details {
@@ -21,4 +30,7 @@
 
 .card-container-colors--preview {
   height: 500px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
 }
