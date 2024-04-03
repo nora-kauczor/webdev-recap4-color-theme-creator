@@ -31,3 +31,7 @@
 .color-display {
   width: 400px;
 }
+
+.color-display--preview {
+  width: 100px;
+}
