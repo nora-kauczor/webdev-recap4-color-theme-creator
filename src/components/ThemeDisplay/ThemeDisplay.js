@@ -1,6 +1,12 @@
 import "./ThemeDisplay.css";
 import { ColorCard } from "../ColorCard/ColorCard.js";
 
+// Create separate React components for preview and detail view of themes.
+// Create a React component called Theme.
+// Inside the Theme component, implement a toggle functionality between preview and detail view for themes.
+
+// unten lösung für mehrere karten mit map()
+
 export function ThemeDisplay({ theme }) {
   const primaryColor = theme.colors[0];
   const secondaryColor = theme.colors[1];
@@ -8,8 +14,11 @@ export function ThemeDisplay({ theme }) {
   const surfaceOnColor = theme.colors[3];
 
   let showDetails = true;
+
   function handleToggle() {
-    return (showDetails = !showDetails);
+    showDetails = !showDetails;
+    console.log(showDetails);
+    return showDetails;
   }
 
   return (
