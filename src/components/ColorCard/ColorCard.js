@@ -1,24 +1,24 @@
 import "./ColorCard.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export function ColorCardDetails({ color }) {
   const [colorName, setColorName] = useState("");
 
-  // warum entsteht hier ein loop???? ich calle ja innerhalb des fetchens hier keine setterfunktion (die ColorCardDetails neu starten würde)
-  // async function getName(color) {
-  //   const response = await fetch(
-  //     `https://www.thecolorapi.com/id?hex=<${color.value}>`
-  //   );
-  //   const data = await response.json();
-  //   const colorName = data.name.value;
+  async function getName(color) {
+    const indexToDelete = 0;
+    const hexWithoutHashtag = color.value.slice(indexToDelete + 1);
 
-  //   return colorName;
-  // }
+    const response = await fetch(
+      `https://www.thecolorapi.com/id?hex=${hexWithoutHashtag}`
+    );
+    const data = await response.json();
+    setColorName(data.name.value);
+    console.log(data.name.value);
+  }
 
-  // useEffect(() => {
-  //   console.log("inside effect");
-  //   fgetName();
-  // }, [colorName]);
+  useEffect(() => {
+    getName(color);
+  }, [color]);
 
   return (
     <li className="color-card">
@@ -27,7 +27,10 @@ export function ColorCardDetails({ color }) {
           {color.role}
         </h3>
         <p name="color-description-name" className="color-description-name"></p>
-        <p name="color-description-hex" className="color-description-hex"></p>
+        {colorName}
+        <p name="color-description-hex" className="color-description-hex">
+          {color.value}
+        </p>
       </div>
       <div
         style={{ backgroundColor: color.value }}

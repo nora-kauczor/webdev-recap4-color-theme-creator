@@ -9,7 +9,9 @@ import { ThemeForm } from "./components/ThemeForm/ThemeForm.js";
 import { v4 as uuid } from "uuid";
 
 function App() {
-  const [themes, setThemes] = useState(initialThemes);
+  const [themes, setThemes] = useLocalStorageState("themes", {
+    defaultValue: initialThemes,
+  });
 
   function handleAddTheme(userTheme) {
     // const userColors = userTheme.slice();
@@ -38,7 +40,7 @@ function App() {
         ],
       },
 
-      ...initialThemes,
+      ...themes,
     ]);
   }
 
