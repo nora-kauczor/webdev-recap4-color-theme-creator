@@ -1,7 +1,7 @@
 import "./ThemeForm.css";
 
 // Use uncontrolled inputs and give the input fields a defaultValue.
-// error catching
+// error catching ?
 
 export function ThemeForm({ onAddTheme }) {
   function handleSubmit(event) {

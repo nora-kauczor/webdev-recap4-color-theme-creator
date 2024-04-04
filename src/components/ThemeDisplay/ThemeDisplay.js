@@ -35,15 +35,19 @@ export function ThemeDisplay({ theme, onDeleteTheme }) {
           Delete
         </button>
       )}
-      <ul>
-        {theme.colors.map((color) =>
-          showDetails ? (
+      {showDetails ? (
+        <ul className="card-container-colors--details">
+          {theme.colors.map((color) => (
             <ColorCardDetails key={color.value} color={color} />
-          ) : (
+          ))}{" "}
+        </ul>
+      ) : (
+        <ul className="card-container-colors--preview">
+          {theme.colors.map((color) => (
             <ColorCardPreview key={color.value} color={color} />
-          )
-        )}
-      </ul>
+          ))}
+        </ul>
+      )}
     </section>
   );
 }
