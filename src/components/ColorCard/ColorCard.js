@@ -14,28 +14,18 @@ export function ColorCardDetails({ color }) {
 
       <div
         style={{ backgroundColor: color.value }}
-        className={"color-display--details"}
+        className="color-display--details"
       ></div>
     </li>
   );
 }
 
-export function ColorCardPreview({ color, showDetails }) {
+export function ColorCardPreview({ color }) {
   return (
     <li className="color-card">
-      {showDetails && (
-        <div name="color-description" className="color-description">
-          <h3 name="color-description-role" className="color-description-role">
-            {color.role}
-          </h3>
-          <p name="color-description-hex" className="color-description-hex">
-            {color.value}
-          </p>
-        </div>
-      )}
       <div
         style={{ backgroundColor: color.value }}
-        className={"color-display--preview"}
+        className="color-display--preview"
       ></div>
     </li>
   );

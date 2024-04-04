@@ -11,7 +11,38 @@ function App() {
   const [themes, setThemes] = useState(initialThemes);
 
   function handleAddTheme(userTheme) {
-    setThemes([{ key: uuid(), ...userTheme }, ...initialThemes]);
+    // const userColors = userTheme.slice();
+    // console.log(userColors);
+    setThemes([
+      {
+        key: uuid(),
+        name: userTheme.name,
+        colors: [
+          {
+            role: "primary",
+            value: userTheme.primary,
+          },
+          {
+            role: "secondary",
+            value: userTheme.secondary,
+          },
+          {
+            role: "surface",
+            value: userTheme.surface,
+          },
+          {
+            role: "surface-on",
+            value: userTheme.surface_on,
+          },
+        ],
+      },
+
+      ...initialThemes,
+    ]);
+  }
+
+  function handleDeleteTheme(themeToDelete) {
+    setThemes(themes.filter((theme) => theme.id != themeToDelete.id));
   }
 
   return (
@@ -19,7 +50,11 @@ function App() {
       <Header />
       <ThemeForm onAddTheme={handleAddTheme} />
       {themes.map((theme) => (
-        <ThemeDisplay key={theme.id} theme={theme} />
+        <ThemeDisplay
+          onDeleteTheme={handleDeleteTheme}
+          key={theme.id}
+          theme={theme}
+        />
       ))}
     </main>
   );

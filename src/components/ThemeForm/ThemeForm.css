@@ -1,16 +1,34 @@
 .theme-form {
-  width: 1300px;
-  height: 500px;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+
+  gap: 10px;
+}
+
+.theme-form-name-label {
+  font-size: 3vh;
+}
+
+.theme-form-name-input {
+  width: 20vw;
+  height: 3vh;
+  margin-left: 50vw;
 }
 
 .theme-form-colors {
+  height: 12vh;
   display: flex;
   justify-content: space-evenly;
 }
 
-.color-input {
-  width: 200px;
-  height: 200px;
-  border-radius: 60px;
+.theme-form-colors-input {
+  width: 20%;
+  height: 100%;
+  border-radius: 10px;
+}
+
+input[type="color"]::-webkit-color-swatch {
+  border-radius: 100px;
+  border: 1px solid #ccc;
 }

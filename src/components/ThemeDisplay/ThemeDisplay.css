@@ -24,7 +24,8 @@
   margin-right: 70px;
 }
 
-.card-container-colors--details {
+/* vorher in themedisplay-css: */
+/* .card-container-colors--details {
   height: 1200px;
 }
 
@@ -34,4 +35,4 @@
   flex-direction: row;
   justify-content: space-evenly;
   gap: 20px;
-}
+} */

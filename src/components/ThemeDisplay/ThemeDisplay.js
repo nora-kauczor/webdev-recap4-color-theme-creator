@@ -3,11 +3,14 @@ import { ColorCardDetails, ColorCardPreview } from "../ColorCard/ColorCard.js";
 
 import { useState } from "react";
 
-export function ThemeDisplay({ theme }) {
+export function ThemeDisplay({ theme, onDeleteTheme }) {
   const [showDetails, setShowDetails] = useState(true);
 
   function handleToggle() {
     setShowDetails(!showDetails);
+  }
+  function handleClick() {
+    onDeleteTheme(theme);
   }
 
   return (
@@ -27,6 +30,11 @@ export function ThemeDisplay({ theme }) {
           {showDetails ? "🙈" : "👀"}
         </button>
       </h2>
+      {showDetails && (
+        <button className="card-container-deletebutton" onClick={handleClick}>
+          Delete
+        </button>
+      )}
       <ul>
         {theme.colors.map((color) =>
           showDetails ? (
