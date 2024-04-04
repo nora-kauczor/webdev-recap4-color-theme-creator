@@ -1,13 +1,16 @@
 import "./ThemeDisplay.css";
-import { ColorCard } from "../ColorCard/ColorCard.js";
-import { uid } from "uid";
+import { ColorCardDetails, ColorCardPreview } from "../ColorCard/ColorCard.js";
+
 import { useState } from "react";
 
-export function ThemeDisplay({ theme }) {
+export function ThemeDisplay({ theme, onDeleteTheme }) {
   const [showDetails, setShowDetails] = useState(true);
 
   function handleToggle() {
     setShowDetails(!showDetails);
+  }
+  function handleClick() {
+    onDeleteTheme(theme);
   }
 
   return (
@@ -27,20 +30,24 @@ export function ThemeDisplay({ theme }) {
           {showDetails ? "🙈" : "👀"}
         </button>
       </h2>
-      <div
-        className={
-          showDetails
-            ? "card-container-colors--details"
-            : "card-container-colors--preview"
-        }
-      >
-        {theme.colors.map((color) => (
-          <ColorCard
-            colorObject={{ key: uid(), ...color }}
-            showDetails={showDetails}
-          />
-        ))}
-      </div>
+      {showDetails && (
+        <button className="card-container-deletebutton" onClick={handleClick}>
+          Delete
+        </button>
+      )}
+      {showDetails ? (
+        <ul className="card-container-colors--details">
+          {theme.colors.map((color) => (
+            <ColorCardDetails key={color.value} color={color} />
+          ))}{" "}
+        </ul>
+      ) : (
+        <ul className="card-container-colors--preview">
+          {theme.colors.map((color) => (
+            <ColorCardPreview key={color.value} color={color} />
+          ))}
+        </ul>
+      )}
     </section>
   );
 }

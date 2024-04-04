@@ -1,4 +1,4 @@
-export const themes = [
+export const initialThemes = [
   {
     id: "0",
     name: "Vivid Meadow",
