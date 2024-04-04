@@ -12,6 +12,7 @@ function App() {
   const [themes, setThemes] = useLocalStorageState("themes", {
     defaultValue: initialThemes,
   });
+  const [view, setView] = useState("preview");
 
   function handleAddTheme(userTheme) {
     // const userColors = userTheme.slice();
@@ -48,6 +49,14 @@ function App() {
     setThemes(themes.filter((theme) => theme.id != themeToDelete.id));
   }
 
+  function handleSaveTheme(editedTheme, prevTheme) {
+    const themesWithoutPrevTheme = themes.filter(
+      (theme) => theme.id != prevTheme.id
+    );
+    setThemes(editedTheme, themesWithoutPrevTheme);
+    setView("preview");
+  }
+
   return (
     <main>
       <Header />
@@ -55,8 +64,10 @@ function App() {
       {themes.map((theme) => (
         <ThemeDisplay
           onDeleteTheme={handleDeleteTheme}
+          handleSaveTheme={handleSaveTheme}
           key={theme.id}
           theme={theme}
+          view={view}
         />
       ))}
     </main>

@@ -3,23 +3,17 @@ import { ColorCardDetails, ColorCardPreview } from "../ColorCard/ColorCard.js";
 import { EditTheme } from "../EditTheme/EditTheme.js";
 import { useState } from "react";
 
-export function ThemeDisplay({ theme, onDeleteTheme }) {
-  const [showDetails, setShowDetails] = useState(false);
-  const [editMode, setEditMode] = useState(false);
-
+export function ThemeDisplay({ theme, view, onDeleteTheme, handleSaveTheme }) {
   function handleToggle() {
-    setShowDetails(!showDetails);
+    view === "preview" ? setView("details") : setView("preview");
   }
+
   function handleClick() {
     onDeleteTheme(theme);
   }
-  function handleSwitchToEditMode() {
-    setEditMode(!editMode);
-  }
 
-  // ThemeDisplay bübergibt handleSaveTheme an sein child EditTheme. EditTheme ruft die Inputdaten ab und macht ein Objekt daraus. Dieses Objekt ist der Input von handleSaveTheme, die wiederum handleAddTheme in der app-componente callt. handleAddTheme callt die Setter-funktion des themes-arrays, der diesen array aktualisiert.
-  function handleSaveTheme(editedTheme) {
-    onAddTheme(editedTheme);
+  function handleSwitchToEditMode() {
+    setView("edit");
   }
 
   return (
@@ -36,32 +30,38 @@ export function ThemeDisplay({ theme, onDeleteTheme }) {
           className="card-container-header-button"
           onClick={handleToggle}
         >
-          {showDetails ? "🙈" : "👀"}
+          {view === "preview" ? "👀" : "🙈"}
         </button>
       </h2>
-      {showDetails && !editMode && (
-        <button className="card-container-editbutton">Edit</button>
-      )}
-      {showDetails && !editMode && (
-        <button className="card-container-deletebutton" onClick={handleClick}>
-          Delete
-        </button>
-      )}
-      {showDetails && !editMode && (
-        <ul className="card-container-colors--details">
-          {theme.colors.map((color) => (
-            <ColorCardDetails key={color.value} color={color} />
-          ))}
-        </ul>
-      )}
-      {!showDetails && !editMode && (
+      {view === "preview" && (
         <ul className="card-container-colors--preview">
           {theme.colors.map((color) => (
             <ColorCardPreview key={color.value} color={color} />
           ))}
         </ul>
       )}
-      {showDetails && editMode && (
+      {view === "details" && (
+        <div>
+          <button
+            className="card-container-editbutton"
+            onClick={handleSwitchToEditMode}
+          >
+            Edit
+          </button>
+
+          <button className="card-container-deletebutton" onClick={handleClick}>
+            Delete
+          </button>
+
+          <ul className="card-container-colors--details">
+            {theme.colors.map((color) => (
+              <ColorCardDetails key={color.value} color={color} />
+            ))}
+          </ul>
+        </div>
+      )}
+
+      {view === "edit" && (
         <EditTheme theme={theme} onSaveTheme={handleSaveTheme} />
       )}
     </section>

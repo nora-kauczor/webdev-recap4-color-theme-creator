@@ -4,8 +4,6 @@ export function EditTheme({ onSaveTheme, theme }) {
     const formData = new FormData(event.target);
     const userTheme = Object.fromEntries(formData);
     onSaveTheme(userTheme);
-    console.log(userTheme);
-    event.target.reset();
   }
 
   return (
@@ -17,7 +15,7 @@ export function EditTheme({ onSaveTheme, theme }) {
         <input
           className="theme-form-name-input"
           id="input_theme_name"
-          placeholder="Name"
+          defaultValue={theme.name}
           name="name"
           required
         />
@@ -47,7 +45,7 @@ export function EditTheme({ onSaveTheme, theme }) {
             defaultValue="#E1CB65"
           />
         </div>
-        <button>Add Theme</button>
+        <button>Save Theme</button>
       </form>
     </div>
   );

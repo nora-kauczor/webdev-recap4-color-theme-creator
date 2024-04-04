@@ -9,7 +9,6 @@ export function ThemeForm({ onAddTheme }) {
     const formData = new FormData(event.target);
     const userTheme = Object.fromEntries(formData);
     onAddTheme(userTheme);
-    console.log(userTheme);
     event.target.reset();
   }
 
