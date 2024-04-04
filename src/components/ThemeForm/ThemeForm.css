@@ -1,0 +1,16 @@
+.theme-form {
+  width: 1300px;
+  height: 500px;
+  overflow: hidden;
+}
+
+.theme-form-colors {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.color-input {
+  width: 200px;
+  height: 200px;
+  border-radius: 60px;
+}

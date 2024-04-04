@@ -1,6 +1,6 @@
 import "./ThemeDisplay.css";
-import { ColorCard } from "../ColorCard/ColorCard.js";
-import { uid } from "uid";
+import { ColorCardDetails, ColorCardPreview } from "../ColorCard/ColorCard.js";
+
 import { useState } from "react";
 
 export function ThemeDisplay({ theme }) {
@@ -27,20 +27,15 @@ export function ThemeDisplay({ theme }) {
           {showDetails ? "🙈" : "👀"}
         </button>
       </h2>
-      <div
-        className={
-          showDetails
-            ? "card-container-colors--details"
-            : "card-container-colors--preview"
-        }
-      >
-        {theme.colors.map((color) => (
-          <ColorCard
-            colorObject={{ key: uid(), ...color }}
-            showDetails={showDetails}
-          />
-        ))}
-      </div>
+      <ul>
+        {theme.colors.map((color) =>
+          showDetails ? (
+            <ColorCardDetails key={color.value} color={color} />
+          ) : (
+            <ColorCardPreview key={color.value} color={color} />
+          )
+        )}
+      </ul>
     </section>
   );
 }

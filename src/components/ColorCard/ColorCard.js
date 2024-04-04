@@ -1,24 +1,42 @@
 import "./ColorCard.css";
 
-export function ColorCard({ colorObject, showDetails }) {
+export function ColorCardDetails({ color }) {
   return (
-    <ul className="color-card">
+    <li className="color-card">
+      <div name="color-description" className="color-description">
+        <h3 name="color-description-role" className="color-description-role">
+          {color.role}
+        </h3>
+        <p name="color-description-hex" className="color-description-hex">
+          {color.value}
+        </p>
+      </div>
+
+      <div
+        style={{ backgroundColor: color.value }}
+        className={"color-display--details"}
+      ></div>
+    </li>
+  );
+}
+
+export function ColorCardPreview({ color, showDetails }) {
+  return (
+    <li className="color-card">
       {showDetails && (
-        <li name="color-description" className="color-description">
+        <div name="color-description" className="color-description">
           <h3 name="color-description-role" className="color-description-role">
-            {colorObject.role}
+            {color.role}
           </h3>
           <p name="color-description-hex" className="color-description-hex">
-            {colorObject.value}
+            {color.value}
           </p>
-        </li>
+        </div>
       )}
-      <li
-        style={{ backgroundColor: colorObject.value }}
-        className={
-          showDetails ? "color-display--details" : "color-display--preview"
-        }
-      ></li>
-    </ul>
+      <div
+        style={{ backgroundColor: color.value }}
+        className={"color-display--preview"}
+      ></div>
+    </li>
   );
 }

@@ -1,7 +1,8 @@
 .color-card {
   height: 250px;
-  width: 750px;
+  /* width: 750px; */
   list-style: none;
+
   /* was macht flex hier genau???? */
   display: flex;
 }
