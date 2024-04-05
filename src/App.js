@@ -9,10 +9,10 @@ import { ThemeForm } from "./components/ThemeForm/ThemeForm.js";
 import { v4 as uuid } from "uuid";
 
 function App() {
-  const [themes, setThemes] = useLocalStorageState("themes", {
-    defaultValue: initialThemes,
-  });
-  const [view, setView] = useState("preview");
+  // const [themes, setThemes] = useLocalStorageState("themes", {
+  //   defaultValue: initialThemes,
+  // });
+  const [themes, setThemes] = useState(initialThemes);
 
   function handleAddTheme(userTheme) {
     // const userColors = userTheme.slice();
@@ -49,12 +49,40 @@ function App() {
     setThemes(themes.filter((theme) => theme.id != themeToDelete.id));
   }
 
-  function handleSaveTheme(editedTheme, prevTheme) {
+  function handleRemovePrevThemeAndReplaceWithEditedTheme(
+    editedTheme,
+    prevTheme
+  ) {
     const themesWithoutPrevTheme = themes.filter(
       (theme) => theme.id != prevTheme.id
     );
-    setThemes(editedTheme, themesWithoutPrevTheme);
-    setView("preview");
+
+    setThemes([
+      {
+        key: uuid(),
+        name: editedTheme.name,
+        colors: [
+          {
+            role: "primary",
+            value: editedTheme.primary,
+          },
+          {
+            role: "secondary",
+            value: editedTheme.secondary,
+          },
+          {
+            role: "surface",
+            value: editedTheme.surface,
+          },
+          {
+            role: "surface-on",
+            value: editedTheme.surface_on,
+          },
+        ],
+      },
+
+      ...themesWithoutPrevTheme,
+    ]);
   }
 
   return (
@@ -64,10 +92,11 @@ function App() {
       {themes.map((theme) => (
         <ThemeDisplay
           onDeleteTheme={handleDeleteTheme}
-          handleSaveTheme={handleSaveTheme}
+          onRemovePrevThemeAndReplaceWithEditedTheme={
+            handleRemovePrevThemeAndReplaceWithEditedTheme
+          }
           key={theme.id}
           theme={theme}
-          view={view}
         />
       ))}
     </main>

@@ -3,7 +3,12 @@ import { ColorCardDetails, ColorCardPreview } from "../ColorCard/ColorCard.js";
 import { EditTheme } from "../EditTheme/EditTheme.js";
 import { useState } from "react";
 
-export function ThemeDisplay({ theme, view, onDeleteTheme, handleSaveTheme }) {
+export function ThemeDisplay({
+  theme,
+  onRemovePrevThemeAndReplaceWithEditedTheme,
+  onDeleteTheme,
+}) {
+  const [view, setView] = useState("preview");
   function handleToggle() {
     view === "preview" ? setView("details") : setView("preview");
   }
@@ -14,6 +19,11 @@ export function ThemeDisplay({ theme, view, onDeleteTheme, handleSaveTheme }) {
 
   function handleSwitchToEditMode() {
     setView("edit");
+  }
+
+  function handleSaveTheme(editedTheme) {
+    onRemovePrevThemeAndReplaceWithEditedTheme(editedTheme, theme);
+    setView("preview");
   }
 
   return (
@@ -48,11 +58,9 @@ export function ThemeDisplay({ theme, view, onDeleteTheme, handleSaveTheme }) {
           >
             Edit
           </button>
-
           <button className="card-container-deletebutton" onClick={handleClick}>
             Delete
           </button>
-
           <ul className="card-container-colors--details">
             {theme.colors.map((color) => (
               <ColorCardDetails key={color.value} color={color} />

@@ -1,3 +1,4 @@
+import "./EditTheme.css";
 export function EditTheme({ onSaveTheme, theme }) {
   function handleSubmit(event) {
     event.preventDefault();

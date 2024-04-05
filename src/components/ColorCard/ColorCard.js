@@ -13,7 +13,6 @@ export function ColorCardDetails({ color }) {
     );
     const data = await response.json();
     setColorName(data.name.value);
-    console.log(data.name.value);
   }
 
   useEffect(() => {
