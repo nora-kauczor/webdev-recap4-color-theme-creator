@@ -52,6 +52,7 @@ export function ThemeDisplay({
       )}
       {view === "details" && (
         <div>
+          <button className="card-container-trybutton">Try</button>
           <button
             className="card-container-editbutton"
             onClick={handleSwitchToEditMode}
