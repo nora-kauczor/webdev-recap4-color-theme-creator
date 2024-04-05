@@ -1,4 +1,5 @@
 import "./ThemeForm.css";
+import { ColorPicker } from "../ColorPicker/ColorPicker.js";
 
 // Use uncontrolled inputs and give the input fields a defaultValue.
 // error catching ?
@@ -25,26 +26,22 @@ export function ThemeForm({ onAddTheme }) {
         required
       />
       <div className="theme-form-colors">
-        <input
-          type="color"
+        <ColorPicker
           className="theme-form-colors-input"
           name="primary"
           defaultValue="#1DDA82"
         />
-        <input
-          type="color"
+        <ColorPicker
           className="theme-form-colors-input"
           name="secondary"
           defaultValue="#3867E0"
         />
-        <input
-          type="color"
+        <ColorPicker
           className="theme-form-colors-input"
           name="surface"
           defaultValue="#9BE5D2"
         />
-        <input
-          type="color"
+        <ColorPicker
           className="theme-form-colors-input"
           name="surface_on"
           defaultValue="#E1CB65"
