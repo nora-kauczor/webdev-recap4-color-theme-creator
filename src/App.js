@@ -9,9 +9,10 @@ import { ThemeForm } from "./components/ThemeForm/ThemeForm.js";
 import { v4 as uuid } from "uuid";
 
 function App() {
-  const [themes, setThemes] = useLocalStorageState("themes", {
-    defaultValue: initialThemes,
-  });
+  // const [themes, setThemes] = useLocalStorageState("themes", {
+  //   defaultValue: initialThemes,
+  // });
+  const [themes, setThemes] = useState(initialThemes);
 
   function handleAddTheme(userTheme) {
     // const userColors = userTheme.slice();
@@ -48,6 +49,42 @@ function App() {
     setThemes(themes.filter((theme) => theme.id != themeToDelete.id));
   }
 
+  function handleRemovePrevThemeAndReplaceWithEditedTheme(
+    editedTheme,
+    prevTheme
+  ) {
+    const themesWithoutPrevTheme = themes.filter(
+      (theme) => theme.id != prevTheme.id
+    );
+
+    setThemes([
+      {
+        key: uuid(),
+        name: editedTheme.name,
+        colors: [
+          {
+            role: "primary",
+            value: editedTheme.primary,
+          },
+          {
+            role: "secondary",
+            value: editedTheme.secondary,
+          },
+          {
+            role: "surface",
+            value: editedTheme.surface,
+          },
+          {
+            role: "surface-on",
+            value: editedTheme.surface_on,
+          },
+        ],
+      },
+
+      ...themesWithoutPrevTheme,
+    ]);
+  }
+
   return (
     <main>
       <Header />
@@ -55,6 +92,9 @@ function App() {
       {themes.map((theme) => (
         <ThemeDisplay
           onDeleteTheme={handleDeleteTheme}
+          onRemovePrevThemeAndReplaceWithEditedTheme={
+            handleRemovePrevThemeAndReplaceWithEditedTheme
+          }
           key={theme.id}
           theme={theme}
         />
