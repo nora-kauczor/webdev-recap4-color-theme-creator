@@ -8,6 +8,7 @@ export function ThemeForm({ onAddTheme }) {
     event.preventDefault();
     const formData = new FormData(event.target);
     const userTheme = Object.fromEntries(formData);
+    console.log(userTheme);
     onAddTheme(userTheme);
     event.target.reset();
   }

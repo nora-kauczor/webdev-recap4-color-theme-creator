@@ -6,7 +6,7 @@ export function EditTheme({ onSaveTheme, theme }) {
     const userTheme = Object.fromEntries(formData);
     onSaveTheme(userTheme);
   }
-
+  console.log(theme);
   return (
     <div>
       <form onSubmit={handleSubmit} className="theme-form">
@@ -25,25 +25,25 @@ export function EditTheme({ onSaveTheme, theme }) {
             type="color"
             className="theme-form-colors-input"
             name="primary"
-            defaultValue="#1DDA82"
+            defaultValue={theme.colors[0].value}
           />
           <input
             type="color"
             className="theme-form-colors-input"
             name="secondary"
-            defaultValue="#3867E0"
+            defaultValue={theme.colors[1].value}
           />
           <input
             type="color"
             className="theme-form-colors-input"
             name="surface"
-            defaultValue="#9BE5D2"
+            defaultValue={theme.colors[2].value}
           />
           <input
             type="color"
             className="theme-form-colors-input"
             name="surface_on"
-            defaultValue="#E1CB65"
+            defaultValue={theme.colors[3].value}
           />
         </div>
         <button>Save Theme</button>
