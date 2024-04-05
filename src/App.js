@@ -5,7 +5,7 @@ import { initialThemes, themes } from "./db.js";
 import { ThemeDisplay } from "./components/ThemeDisplay/ThemeDisplay.js";
 import { Header } from "./components/Header/Header.js";
 import { ThemeForm } from "./components/ThemeForm/ThemeForm.js";
-
+import { TestPage } from "./components/TestPage/TestPage.js";
 import { v4 as uuid } from "uuid";
 
 function App() {
@@ -15,12 +15,17 @@ function App() {
   const [themes, setThemes] = useState(initialThemes);
 
   function handleAddTheme(userTheme) {
-    // const userColors = userTheme.slice();
-    // console.log(userColors);
+    // const copyOfUserThemeWithoutName = { ...userTheme };
+    // delete copyOfUserThemeWithoutName.name;
     setThemes([
       {
         key: uuid(),
         name: userTheme.name,
+        // colors: [
+        //   Object.entries(copyOfUserThemeWithoutName).map(([key, value]) => ({
+        //     role: key,
+        //     value: value,
+        //   })),
         colors: [
           {
             role: "primary",
@@ -85,22 +90,44 @@ function App() {
     ]);
   }
 
-  return (
-    <main>
-      <Header />
-      <ThemeForm onAddTheme={handleAddTheme} />
-      {themes.map((theme) => (
-        <ThemeDisplay
-          onDeleteTheme={handleDeleteTheme}
-          onRemovePrevThemeAndReplaceWithEditedTheme={
-            handleRemovePrevThemeAndReplaceWithEditedTheme
-          }
-          key={theme.id}
-          theme={theme}
-        />
-      ))}
-    </main>
-  );
+  // previewTheme soll folgende Werte annehmen: Positionen der einzelnen Themes innerhalb des themes-Arrays oder null
+  // null soll heißen: show main page
+  const [previewTheme, setPreviewTheme] = useState(null);
+  /* diese funktion wird aus themedisplay heraus gecallt mit dem jeweiligen theme als input. es callt dann den setter von preview
+Theme und ändert ihn zu dem jeweiligen theme (von dem aus gecallt wurde)*/
+  function handlePreviewOfSpecifcThemeAndHideOtherThemes(theme) {
+    setPreviewTheme(theme);
+  }
+  function handleEscapePreview() {
+    setPreviewTheme(null);
+  }
+
+  // JSX PART
+  if (previewTheme === null) {
+    return (
+      <main>
+        <Header />
+        <ThemeForm onAddTheme={handleAddTheme} />
+        {themes.map((theme) => (
+          <ThemeDisplay
+            onDeleteTheme={handleDeleteTheme}
+            onRemovePrevThemeAndReplaceWithEditedTheme={
+              handleRemovePrevThemeAndReplaceWithEditedTheme
+            }
+            onPreviewOfSpecifcThemeAndHideOtherThemes={
+              handlePreviewOfSpecifcThemeAndHideOtherThemes
+            }
+            key={theme.id}
+            theme={theme}
+          />
+        ))}
+      </main>
+    );
+  } else {
+    return (
+      <TestPage theme={previewTheme} onEscapePreview={handleEscapePreview} />
+    );
+  }
 }
 
 export default App;
