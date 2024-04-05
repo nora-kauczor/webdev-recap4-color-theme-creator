@@ -15,12 +15,17 @@ function App() {
   const [themes, setThemes] = useState(initialThemes);
 
   function handleAddTheme(userTheme) {
-    // const userColors = userTheme.slice();
-    // console.log(userColors);
+    // const copyOfUserThemeWithoutName = { ...userTheme };
+    // delete copyOfUserThemeWithoutName.name;
     setThemes([
       {
         key: uuid(),
         name: userTheme.name,
+        // colors: [
+        //   Object.entries(copyOfUserThemeWithoutName).map(([key, value]) => ({
+        //     role: key,
+        //     value: value,
+        //   })),
         colors: [
           {
             role: "primary",
