@@ -1,6 +1,9 @@
 export function TestPage({ theme, onEscapePreview }) {
   const primaryColor = theme.colors[0];
   const secondaryColor = theme.colors[1];
+  const surfaceColor = theme.colors[2];
+  const surfaceOnColor = theme.colors[3];
+  console.log(secondaryColor);
   function handleClick() {
     onEscapePreview();
   }
@@ -40,16 +43,25 @@ export function TestPage({ theme, onEscapePreview }) {
         </p>
       </article>
       <ul className="style_buttons">
-        <button className="style_buttons-contained_button"></button>
-        <button className="style_buttons-outline_button"></button>
+        <button className="style_buttons-contained_button">Contained</button>
+        <button
+          className="style_buttons-outline_button"
+          style={{ backgroundColor: surfaceOnColor.value }}
+        >
+          Outlined
+        </button>
         <button
           className="style_buttons-primary_button"
-          style={{ primaryColor }}
-        ></button>
+          style={{ backgroundColor: surfaceColor.value }}
+        >
+          {primaryColor.name}
+        </button>
         <button
           className="style_buttons-secondary_button"
-          style={{ secondaryColor }}
-        ></button>
+          style={{ backgroundColor: secondaryColor.value }}
+        >
+          {secondaryColor.name}
+        </button>
       </ul>
     </div>
   );
