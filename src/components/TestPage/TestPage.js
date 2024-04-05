@@ -1,3 +1,4 @@
+import "./TestPage.css";
 export function TestPage({ theme, onEscapePreview }) {
   const primaryColor = theme.colors[0];
   const secondaryColor = theme.colors[1];
@@ -12,8 +13,7 @@ export function TestPage({ theme, onEscapePreview }) {
       <button className="closepreview_button" onClick={handleClick}>
         Close Preview
       </button>
-      ;
-      <h1 className="title" style={{ primaryColor }}>
+      <h1 className="title" style={{ color: primaryColor.value }}>
         {theme.name}
       </h1>
       <article className="simple_paragraph">
@@ -30,7 +30,10 @@ export function TestPage({ theme, onEscapePreview }) {
           takimata sanctus est Lorem ipsum dolor sit amet.
         </p>
       </article>
-      <article className="hightlighted_paragraph">
+      <article
+        className="hightlighted_paragraph"
+        style={{ backgroundColor: secondaryColor.value }}
+      >
         <h2 className="hightlighted_paragraph-headline">A Hightlight Box</h2>
         <p className="hightlighted_paragraph-text">
           Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
@@ -43,24 +46,30 @@ export function TestPage({ theme, onEscapePreview }) {
         </p>
       </article>
       <ul className="style_buttons">
-        <button className="style_buttons-contained_button">Contained</button>
+        <button
+          className="style_buttons-contained_button"
+          style={{ backgroundColor: surfaceOnColor.value }}
+        >
+          Contained
+        </button>
+
         <button
           className="style_buttons-outline_button"
-          style={{ backgroundColor: surfaceOnColor.value }}
+          style={{ backgroundColor: surfaceColor.value }}
         >
           Outlined
         </button>
         <button
           className="style_buttons-primary_button"
-          style={{ backgroundColor: surfaceColor.value }}
+          style={{ backgroundColor: primaryColor.value }}
         >
-          {primaryColor.name}
+          {primaryColor.role}
         </button>
         <button
           className="style_buttons-secondary_button"
           style={{ backgroundColor: secondaryColor.value }}
         >
-          {secondaryColor.name}
+          {secondaryColor.role}
         </button>
       </ul>
     </div>

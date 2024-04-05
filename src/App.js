@@ -128,31 +128,6 @@ Theme und ändert ihn zu dem jeweiligen theme (von dem aus gecallt wurde)*/
       <TestPage theme={previewTheme} onEscapePreview={handleEscapePreview} />
     );
   }
-
-  // function handlePreviewOfSpecifcThemeAndHideOtherThemes(theme) {
-  //   return <TestPage theme={theme} onEscapePreview={handleEscapePreview} />;
-  // }
-  // function handleEscapePreview() {
-  //   return (
-  //     <main>
-  //       <Header />
-  //       <ThemeForm onAddTheme={handleAddTheme} />
-  //       {themes.map((theme) => (
-  //         <ThemeDisplay
-  //           onDeleteTheme={handleDeleteTheme}
-  //           onRemovePrevThemeAndReplaceWithEditedTheme={
-  //             handleRemovePrevThemeAndReplaceWithEditedTheme
-  //           }
-  //           onPreviewOfSpecifcThemeAndHideOtherThemes={
-  //             handlePreviewOfSpecifcThemeAndHideOtherThemes
-  //           }
-  //           key={theme.id}
-  //           theme={theme}
-  //         />
-  //       ))}
-  //     </main>
-  //   );
-  // }
 }
 
 export default App;
