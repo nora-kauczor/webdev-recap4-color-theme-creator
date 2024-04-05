@@ -1,10 +1,15 @@
-import "TestPage.css";
-export function TestPage({ theme }) {
+export function TestPage({ theme, onEscapePreview }) {
   const primaryColor = theme.colors[0];
   const secondaryColor = theme.colors[1];
+  function handleClick() {
+    onEscapePreview();
+  }
   return (
     <div>
-      <button className="closepreview_button">Close Preview</button>;
+      <button className="closepreview_button" onClick={handleClick}>
+        Close Preview
+      </button>
+      ;
       <h1 className="title" style={{ primaryColor }}>
         {theme.name}
       </h1>

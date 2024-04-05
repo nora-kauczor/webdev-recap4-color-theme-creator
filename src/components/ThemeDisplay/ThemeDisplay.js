@@ -6,6 +6,7 @@ import { useState } from "react";
 export function ThemeDisplay({
   theme,
   onRemovePrevThemeAndReplaceWithEditedTheme,
+  onPreviewOfSpecifcThemeAndHideOtherThemes,
   onDeleteTheme,
 }) {
   const [view, setView] = useState("preview");
@@ -24,6 +25,11 @@ export function ThemeDisplay({
   function handleSaveTheme(editedTheme) {
     onRemovePrevThemeAndReplaceWithEditedTheme(editedTheme, theme);
     setView("preview");
+  }
+
+  // Callt die Funktion in der App, die dafür zuständig ist, den Wert des States "previewTheme" zu ändern und gibt ihr als Input das eigene Theme (also aus demjenigen Theme, in dem eben geklickt wird)
+  function handleGoToPreviewOfTheme() {
+    onPreviewOfSpecifcThemeAndHideOtherThemes(theme);
   }
 
   return (
@@ -52,7 +58,12 @@ export function ThemeDisplay({
       )}
       {view === "details" && (
         <div>
-          <button className="card-container-trybutton">Try</button>
+          <button
+            className="card-container-trybutton"
+            onClick={handleGoToPreviewOfTheme}
+          >
+            Try
+          </button>
           <button
             className="card-container-editbutton"
             onClick={handleSwitchToEditMode}
