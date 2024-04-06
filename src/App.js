@@ -13,6 +13,7 @@ function App() {
   //   defaultValue: initialThemes,
   // });
   const [themes, setThemes] = useState(initialThemes);
+  const [view, setView] = useState("preview");
 
   function handleAddTheme(userTheme) {
     // const copyOfUserThemeWithoutName = { ...userTheme };
@@ -100,6 +101,7 @@ Theme und ändert ihn zu dem jeweiligen theme (von dem aus gecallt wurde)*/
   }
   function handleEscapePreview() {
     setPreviewTheme(null);
+    setView("details");
   }
 
   // JSX PART
@@ -119,6 +121,8 @@ Theme und ändert ihn zu dem jeweiligen theme (von dem aus gecallt wurde)*/
             }
             key={theme.id}
             theme={theme}
+            view={view}
+            setView={setView}
           />
         ))}
       </main>

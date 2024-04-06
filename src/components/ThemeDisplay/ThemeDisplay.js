@@ -8,8 +8,9 @@ export function ThemeDisplay({
   onRemovePrevThemeAndReplaceWithEditedTheme,
   onPreviewOfSpecifcThemeAndHideOtherThemes,
   onDeleteTheme,
+  view,
+  setView,
 }) {
-  const [view, setView] = useState("preview");
   function handleToggle() {
     view === "preview" ? setView("details") : setView("preview");
   }
@@ -27,7 +28,7 @@ export function ThemeDisplay({
     setView("preview");
   }
 
-  // Callt die Funktion in der App, die dafür zuständig ist, den Wert des States "previewTheme" zu ändern und gibt ihr als Input das eigene Theme (also aus demjenigen Theme, in dem eben geklickt wird)
+  // Callt die Funktion in der App, die dafür zuständig ist, den Wert des States "previewTheme" zu ändern und gibt ihr als Input das eigene Theme (also aus demjenigen Theme, in dem geklickt wird)
   function handleGoToPreviewOfTheme() {
     onPreviewOfSpecifcThemeAndHideOtherThemes(theme);
   }

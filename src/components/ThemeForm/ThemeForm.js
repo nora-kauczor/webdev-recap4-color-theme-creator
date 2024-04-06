@@ -32,8 +32,6 @@ export function ThemeForm({ onAddTheme }) {
     event.preventDefault();
     const name = event.target.elements.name.value;
     onAddTheme({ name, primary, secondary, surface, surfaceon });
-    console.log({ name, primary, secondary, surface, surfaceon });
-
     event.target.reset();
   }
 
