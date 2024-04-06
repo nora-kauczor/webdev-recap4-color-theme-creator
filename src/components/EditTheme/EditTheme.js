@@ -42,7 +42,7 @@ export function EditTheme({ onSaveTheme, theme }) {
           <input
             type="color"
             className="theme-form-colors-input"
-            name="surface_on"
+            name="surfaceon"
             defaultValue={theme.colors[3].value}
           />
         </div>
