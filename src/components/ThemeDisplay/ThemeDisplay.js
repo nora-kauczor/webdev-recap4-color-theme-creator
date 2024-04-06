@@ -1,7 +1,6 @@
 import "./ThemeDisplay.css";
 import { ColorCardDetails, ColorCardPreview } from "../ColorCard/ColorCard.js";
 import { EditTheme } from "../EditTheme/EditTheme.js";
-import { useState } from "react";
 
 export function ThemeDisplay({
   theme,
