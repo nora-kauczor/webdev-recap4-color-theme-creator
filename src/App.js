@@ -41,7 +41,7 @@ function App() {
           },
           {
             role: "surface-on",
-            value: userTheme.surface_on,
+            value: userTheme.surfaceon,
           },
         ],
       },
