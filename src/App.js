@@ -9,11 +9,11 @@ import { TestPage } from "./components/TestPage/TestPage.js";
 import { themeRightStructure } from "./utils/themeRightStructure.js";
 
 function App() {
-  // const [themes, setThemes] = useLocalStorageState("themes", {
-  //   defaultValue: initialThemes,
-  // });
-  const [themes, setThemes] = useState(initialThemes);
+  const [themes, setThemes] = useLocalStorageState("themes", {
+    defaultValue: initialThemes,
+  });
   const [view, setView] = useState("preview");
+  const [previewTheme, setPreviewTheme] = useState(null);
 
   function handleAddTheme(userTheme) {
     const userThemeRightStructure = themeRightStructure(userTheme);
@@ -36,8 +36,6 @@ function App() {
     setThemes([editedThemeRightStructure, ...themesWithoutPrevTheme]);
   }
 
-  const [previewTheme, setPreviewTheme] = useState(null);
-
   function handlePreviewOfSpecifcThemeAndHideOtherThemes(theme) {
     setPreviewTheme(theme);
   }
@@ -46,7 +44,6 @@ function App() {
     setView("details");
   }
 
-  // JSX PART
   if (previewTheme === null) {
     return (
       <main>
