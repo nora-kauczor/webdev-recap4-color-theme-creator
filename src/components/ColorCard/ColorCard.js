@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 
 export function ColorCardDetails({ color }) {
   const [colorName, setColorName] = useState("");
-  //// eventuell auslagern in utils als hilfsfunktion
+
   async function getName(color) {
     const indexToDelete = 0;
     const hexWithoutHashtag = color.value.slice(indexToDelete + 1);
