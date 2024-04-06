@@ -1,14 +1,37 @@
 import "./ThemeForm.css";
+import { ColorPicker } from "../ColorPicker/ColorPicker.js";
+import { useState } from "react";
 
 // Use uncontrolled inputs and give the input fields a defaultValue.
 // error catching ?
 
 export function ThemeForm({ onAddTheme }) {
+  const primaryDefaultValue = "#1DDA82";
+  const secondaryDefaultValue = "#3867E0";
+  const surfaceDefaultValue = "#9BE5D2";
+  const onSurfaceDefaultValue = "#E1CB65";
+  const [primary, setPrimary] = useState(primaryDefaultValue);
+  const [secondary, setSecondary] = useState(secondaryDefaultValue);
+  const [surface, setSurface] = useState(surfaceDefaultValue);
+  const [surfaceon, setOnSurface] = useState(onSurfaceDefaultValue);
+
+  function handleChangePrimary(color) {
+    setPrimary(color);
+  }
+  function handleChangeSecondary(color) {
+    setSecondary(color);
+  }
+  function handleChangeSurface(color) {
+    setSurface(color);
+  }
+  function handleChangeOnSurface(color) {
+    setOnSurface(color);
+  }
+
   function handleSubmit(event) {
     event.preventDefault();
-    const formData = new FormData(event.target);
-    const userTheme = Object.fromEntries(formData);
-    onAddTheme(userTheme);
+    const name = event.target.elements.name.value;
+    onAddTheme({ name, primary, secondary, surface, surfaceon });
     event.target.reset();
   }
 
@@ -25,32 +48,40 @@ export function ThemeForm({ onAddTheme }) {
         required
       />
       <div className="theme-form-colors">
-        <input
-          type="color"
+        <ColorPicker
           className="theme-form-colors-input"
           name="primary"
-          defaultValue="#1DDA82"
+          defaultValue={primaryDefaultValue}
+          onChangeColor={handleChangePrimary}
         />
-        <input
-          type="color"
+        <ColorPicker
           className="theme-form-colors-input"
           name="secondary"
-          defaultValue="#3867E0"
+          defaultValue={secondaryDefaultValue}
+          onChangeColor={handleChangeSecondary}
         />
-        <input
-          type="color"
+        <ColorPicker
           className="theme-form-colors-input"
           name="surface"
-          defaultValue="#9BE5D2"
+          defaultValue={surfaceDefaultValue}
+          onChangeColor={handleChangeSurface}
         />
-        <input
-          type="color"
+        <ColorPicker
           className="theme-form-colors-input"
-          name="surface_on"
-          defaultValue="#E1CB65"
+          name="surfaceon"
+          defaultValue={onSurfaceDefaultValue}
+          onChangeColor={handleChangeOnSurface}
         />
       </div>
       <button>Add Theme</button>
     </form>
   );
 }
+
+/*   Lösungsversuch ohne einzelne States..
+  set [theme, setTheme] = useState(["", "#1DDA82", "#3867E0", "#9BE5D2", "#E1CB65"])
+  function handleChange(event) {
+    const role = event.target; 
+    const color = event.target.value;
+    role === "primary" && setTheme....
+  }*/
