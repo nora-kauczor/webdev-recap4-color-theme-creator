@@ -15,7 +15,7 @@ export function ColorPicker({ defaultValue, onChangeColor }) {
     setField(submittedColor);
     setHex(submittedColor);
     onChangeColor(submittedColor);
-    handleLessThanTwoCharacters(event);
+    // handleLessThanTwoCharacters(event);
   }
 
   // to change hex when user changed field
@@ -40,12 +40,12 @@ export function ColorPicker({ defaultValue, onChangeColor }) {
     getColorName(hex);
   }, [hex]);
 
-  function handleLessThanTwoCharacters(event) {
-    console.log(event.target.value.length());
-    if (event.target.value.length() < 2) {
-      event.target.value = defaultValue;
-    }
-  }
+  // function handleLessThanTwoCharacters(event) {
+  //   console.log(event.target.value.length());
+  //   if (event.target.value.length() < 2) {
+  //     event.target.value = defaultValue;
+  //   }
+  // }
 
   return (
     <div>
