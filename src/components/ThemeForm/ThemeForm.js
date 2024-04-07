@@ -37,43 +37,36 @@ export function ThemeForm({ onAddTheme }) {
 
   return (
     <form onSubmit={handleSubmit} className="theme-form">
-      <label className="theme-form-name-label" htmlFor="input_theme-name">
-        Add a Theme
-      </label>
+      <h2 className="theme-form-headline">Add a Theme</h2>
       <input
         className="theme-form-name-input"
-        id="input_theme_name"
         placeholder="Name"
         name="name"
         required
       />
-      <div className="theme-form-colors">
+      <div className="theme-form-color_container">
         <ColorPicker
-          className="theme-form-colors-input"
           name="primary"
           defaultValue={primaryDefaultValue}
           onChangeColor={handleChangePrimary}
         />
         <ColorPicker
-          className="theme-form-colors-input"
           name="secondary"
           defaultValue={secondaryDefaultValue}
           onChangeColor={handleChangeSecondary}
         />
         <ColorPicker
-          className="theme-form-colors-input"
           name="surface"
           defaultValue={surfaceDefaultValue}
           onChangeColor={handleChangeSurface}
         />
         <ColorPicker
-          className="theme-form-colors-input"
           name="surfaceon"
           defaultValue={onSurfaceDefaultValue}
           onChangeColor={handleChangeOnSurface}
         />
       </div>
-      <button>Add Theme</button>
+      <button className="theme-form-button">Add Theme</button>
     </form>
   );
 }

@@ -48,20 +48,20 @@ export function ColorPicker({ defaultValue, onChangeColor }) {
   // }
 
   return (
-    <div>
+    <div className="colorpicker">
       <input
         name="field"
-        className="color-field"
+        className="colorpicker-field"
         type="color"
         style={{ backgroundColor: field }}
         onChange={handleChangeHex}
       />
-      <p name="name" className="color-name">
+      <p name="name" className="colorpicker-name">
         {colorName}
       </p>
       <input
         name="hex"
-        className="color-hex"
+        className="colorpicker-hex"
         type="text"
         value={hex}
         onChange={handleChangeField}

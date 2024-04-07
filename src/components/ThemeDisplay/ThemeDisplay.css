@@ -10,6 +10,7 @@
 }
 
 .card-container-header-name {
+  font-family: var(--headline-font);
   font-size: 80px;
   margin: 76px;
   height: 30px;

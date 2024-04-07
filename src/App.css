@@ -3,8 +3,11 @@
 @import url(./components/ThemeDisplay/ThemeDisplay.css);
 
 :root {
-  font-family: Arial, sans-serif;
-  --primary-font-size: 70px;
+  --headline-font: "Rubik Scribble";
+
+  --width-color-box: 20vw;
+  --height-color-box: 9vh;
+  --border-radius-color-box: 60px;
 }
 
 main {

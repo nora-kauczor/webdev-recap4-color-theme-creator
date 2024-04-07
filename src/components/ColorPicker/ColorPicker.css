@@ -1,0 +1,22 @@
+.colorpicker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.colorpicker-field {
+  width: var(--width-color-box);
+  height: var(--height-color-box);
+  border-radius: var(--border-radius-color-box);
+}
+.colorpicker-name {
+  font-size: 1vh;
+}
+.colorpicker-hex {
+  margin: 1vh 2vw;
+}
+
+input[type="color"]::-webkit-color-swatch {
+  border-radius: 100px;
+  border: 1px solid #ccc;
+}

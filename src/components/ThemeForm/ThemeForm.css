@@ -2,30 +2,35 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
-
-  gap: 10px;
+  align-items: center;
+  gap: 1vh;
 }
 
-.theme-form-name-label {
+.theme-form-headline {
+  font-family: var(--headline-font);
   font-size: 3vh;
+  margin: 1vh 0vw 0vh 0vw;
 }
 
 .theme-form-name-input {
-  width: 20vw;
+  width: 30vw;
   height: 3vh;
-  margin-left: 50vw;
+  margin: 1vh 0;
+  font-size: 2vh;
 }
 
-.theme-form-colors {
+.theme-form-color_container {
   height: 12vh;
+  margin: 0vh 0vw;
   display: flex;
   justify-content: space-evenly;
+  gap: 2vw;
 }
 
-.theme-form-colors-input {
-  width: 20%;
-  height: 100%;
-  border-radius: 10px;
+.theme-form-button {
+  margin-top: 2vh;
+  width: 20vw;
+  height: 2vh;
 }
 
 input[type="color"]::-webkit-color-swatch {
