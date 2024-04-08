@@ -2,26 +2,6 @@ import "./ColorCard.css";
 import { useState, useEffect } from "react";
 
 export function ColorCardDetails({ color }) {
-  // const [colorName, setColorName] = useState("");
-
-  // async function getName(color) {
-  //   const indexToDelete = 0;
-  //   const hexWithoutHashtag = color.value.slice(indexToDelete + 1);
-  //   try {
-  //     const response = await fetch(
-  //       `https://www.thecolorapi.com/id?hex=${hexWithoutHashtag}`
-  //     );
-  //     const data = await response.json();
-  //     setColorName(data.name.value);
-  //   } catch {
-  //     console.error("An error occured while trying to fetch.");
-  //   }
-  // }
-
-  // useEffect(() => {
-  //   getName(color);
-  // }, [color]);
-
   return (
     <li className="color-card">
       <div name="color-description" className="color-description">

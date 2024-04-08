@@ -13,13 +13,9 @@ export async function fetchName(theme) {
   // auf das gefetchte muss gewartet werden (denn da es async fkt ist, läuft das script schon weiter)
   // fetch-fkt returned erstmal promises, die später zu Anderem werden. setter-funktion unten kann aber keine promises verarbeiten. deshalb muss gewartet werden, bis das fetching fertig ist.
   const colorsWithNames = await Promise.all(promise);
-  // map verändert den ausgangs-aaray von daher muss der neue colors-array hier nicht noch neu eingesetzt werden, sondern ist automatisch in userThemeRightStructure schon drin?
-  // aber es wurde ja eine kopie gemacht, in dem das promise genannt wurde
-  // also alten colors-array rausschneiden und neuen einsetzen?
+  // map verändert den ausgangs-array an sich nicht, aber hier wurde eine kopie vom ausgangs-array gemacht. daher muss der alte array durch den neuen ersetzt werden:
 
   let keyOfItemToReplace = "colors";
-
   theme[keyOfItemToReplace] = colorsWithNames;
-
   return theme;
 }

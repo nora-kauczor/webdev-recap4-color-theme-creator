@@ -1,8 +1,6 @@
 import "./ColorPicker.css";
 import { useState, useEffect } from "react";
 
-// prevent that user empties the hex field completely bc it would cause an error
-
 export function ColorPicker({ defaultValue, onChangeColor }) {
   const [color, setColor] = useState(defaultValue);
   const [colorName, setColorName] = useState(() => {

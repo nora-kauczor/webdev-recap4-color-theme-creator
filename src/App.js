@@ -13,12 +13,12 @@ function App() {
   const [themes, setThemes] = useLocalStorageState("themes", {
     defaultValue: initialThemes,
   });
-
   const [previewTheme, setPreviewTheme] = useState(null);
 
   async function handleAddTheme(userTheme) {
     const userThemeRightStructure = themeRightStructure(userTheme);
     await fetchName(userThemeRightStructure);
+
     setThemes([userThemeRightStructure, ...themes]);
   }
 
@@ -33,7 +33,6 @@ function App() {
     const themesWithoutPrevTheme = themes.filter(
       (theme) => theme.id != prevTheme.id
     );
-
     const editedThemeRightStructure = themeRightStructure(editedTheme);
     await fetchName(editedThemeRightStructure);
     setThemes([editedThemeRightStructure, ...themesWithoutPrevTheme]);
