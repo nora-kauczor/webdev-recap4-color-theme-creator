@@ -1,5 +1,5 @@
 import "./App.css";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import useLocalStorageState from "use-local-storage-state";
 import { initialThemes } from "./db.js";
 import { ThemeDisplay } from "./components/ThemeDisplay/ThemeDisplay.js";
@@ -7,16 +7,18 @@ import { Header } from "./components/Header/Header.js";
 import { ThemeForm } from "./components/ThemeForm/ThemeForm.js";
 import { TestPage } from "./components/TestPage/TestPage.js";
 import { themeRightStructure } from "./utils/themeRightStructure.js";
+import { fetchName } from "./utils/fetchName.js";
 
 function App() {
   const [themes, setThemes] = useLocalStorageState("themes", {
     defaultValue: initialThemes,
   });
-  const [view, setView] = useState("preview");
+
   const [previewTheme, setPreviewTheme] = useState(null);
 
-  function handleAddTheme(userTheme) {
+  async function handleAddTheme(userTheme) {
     const userThemeRightStructure = themeRightStructure(userTheme);
+    await fetchName(userThemeRightStructure);
     setThemes([userThemeRightStructure, ...themes]);
   }
 
@@ -24,7 +26,7 @@ function App() {
     setThemes(themes.filter((theme) => theme.id != themeToDelete.id));
   }
 
-  function handleRemovePrevThemeAndReplaceWithEditedTheme(
+  async function handleRemovePrevThemeAndReplaceWithEditedTheme(
     editedTheme,
     prevTheme
   ) {
@@ -33,15 +35,17 @@ function App() {
     );
 
     const editedThemeRightStructure = themeRightStructure(editedTheme);
+    await fetchName(editedThemeRightStructure);
     setThemes([editedThemeRightStructure, ...themesWithoutPrevTheme]);
   }
 
   function handlePreviewOfSpecifcThemeAndHideOtherThemes(theme) {
     setPreviewTheme(theme);
   }
+
+  // allerdings hiernach müsste die view auf details zurückgesetzt werden aber view muss im einzelnen theme drin sein (theme-weise)
   function handleEscapePreview() {
     setPreviewTheme(null);
-    setView("details");
   }
 
   if (previewTheme === null) {
@@ -60,8 +64,6 @@ function App() {
             }
             key={theme.id}
             theme={theme}
-            view={view}
-            setView={setView}
           />
         ))}
       </main>

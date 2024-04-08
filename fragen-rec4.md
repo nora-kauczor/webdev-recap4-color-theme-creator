@@ -1,24 +1,18 @@
-## to do evtl.
+# to do evtl.
 
-### error catching beim fetchen? und bei inputs?
-
-### user daran hindern, dass hex-feld zu leeren auf weniger als zwei zeichen (aber ohne, dass es auf etwas zurückspringt)
+### a11y
 
 ### form/colorpicker
 
 - vielleicht im colorpicker field und hex vereinheitlichen (nur eine variable/state)
 - warum wurde mir so ein komishces objekt ausgegeben, als ich zuest versucht habe, mir alle input-werte geben zu lassen mit der colorform? {field: black/undefined, hex: wert von onsurface, name: richtiger themename} gibt es da noch eine andere möglichkeit als dass man extra diese ganze states für jede farbe erstellt?
 
-## fragen
+# fragen
 
 ### controlled/uncontrolled inputs ✅
 
 - controlled: user kontrolliert quasi den value, onChange-method, die einen value direkt ändert, wenn der user im eingabefeld etwas ändert
 - uncontrolled: bei eingabe passiert nichts, sondern erst wenn user submit klickt (z.b.)
-
-### Wie kann man überhaupt damit umgehen, dass der Setter immer einen Re-render startet? Muss man dann nicht immer useEffect nutzen? Wird das Script dadrunter jemals ausgeführt? ...
-
-- ohne state wurden doch die veränderungen auch angezeigt -> aber da handelte es sich um global scale und jetzt ist es immer innerhalb einer funktion, deswegen muss sie neu gecallt werden (mit der besonderheit, dass nur die änderungen durchgeführt werden und nicht einfach alles noch einmal gemacht) ?
 
 ### Könnte man die Aufgabe mit colorName auch ohne State (und useEffect) lösen? Wenn man colorName vorher als Variable mit let deklariert? -> nein, weil dann nur der wert geändert wird, aber user kann es nicht sehen. immer wenn etwas neues angezeigt/gerendered werden soll, braucht man dafür die setter-funktion ✅
 
@@ -67,7 +61,11 @@ export function ColorCardDetails({ color }) {
 }
 ```
 
-#### Können Konstanten/Variablen nie mit return aus Funktionen zurückgegeben werden?
+dazu:
+
+#### Wie kann man überhaupt damit umgehen, dass der Setter immer einen Re-render startet? Muss man dann nicht immer useEffect nutzen? Wird das Script dadrunter jemals ausgeführt?
+
+- ohne state wurden doch die veränderungen auch angezeigt -> aber da handelte es sich um global scale und jetzt ist es immer innerhalb einer funktion, deswegen muss sie neu gecallt werden (mit der besonderheit, dass nur die änderungen durchgeführt werden und nicht einfach alles noch einmal gemacht) ? -> antw: nein, man hätte alles einzeln anfassen mpssen im html damit es anders angezeigt wird..
 
 ### Was war bei mir jetzt der prinzipielle Unterschied zwischen den beiden Lösungen? Im Grunde wird doch beides mal einfach eine andere Klasse vergeben?
 

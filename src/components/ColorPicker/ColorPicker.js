@@ -4,41 +4,34 @@ import { useState, useEffect } from "react";
 // prevent that user empties the hex field completely bc it would cause an error
 
 export function ColorPicker({ defaultValue, onChangeColor }) {
-  const [field, setField] = useState(defaultValue);
+  const [color, setColor] = useState(defaultValue);
   const [colorName, setColorName] = useState(() => {
     getColorName(defaultValue);
   });
-  const [hex, setHex] = useState(defaultValue);
 
-  function handleChangeField(event) {
+  function handleChangeColor(event) {
     const submittedColor = event.target.value;
-    setField(submittedColor);
-    setHex(submittedColor);
-    onChangeColor(submittedColor);
-    // handleLessThanTwoCharacters(event);
-  }
-
-  // to change hex when user changed field
-  function handleChangeHex(event) {
-    const submittedColor = event.target.value;
-    setHex(submittedColor);
+    setColor(submittedColor);
     onChangeColor(submittedColor);
   }
 
-  //// eventuell auslagern in utils als hilfsfunktion
-  async function getColorName(hex) {
+  async function getColorName(color) {
     const indexToDelete = 0;
-    const hexWithoutHashtag = hex.slice(indexToDelete + 1);
-    const response = await fetch(
-      `https://www.thecolorapi.com/id?hex=${hexWithoutHashtag}`
-    );
-    const data = await response.json();
-    setColorName(data.name.value);
+    const hexWithoutHashtag = color.slice(indexToDelete + 1);
+    try {
+      const response = await fetch(
+        `https://www.thecolorapi.com/id?hex=${hexWithoutHashtag}`
+      );
+      const data = await response.json();
+      setColorName(data.name.value);
+    } catch {
+      console.error("An error occured while trying to fetch.");
+    }
   }
 
   useEffect(() => {
-    getColorName(hex);
-  }, [hex]);
+    getColorName(color);
+  }, [color]);
 
   // function handleLessThanTwoCharacters(event) {
   //   console.log(event.target.value.length());
@@ -53,8 +46,8 @@ export function ColorPicker({ defaultValue, onChangeColor }) {
         name="field"
         className="colorpicker-field"
         type="color"
-        style={{ backgroundColor: field }}
-        onChange={handleChangeHex}
+        style={{ backgroundColor: color }}
+        onChange={handleChangeColor}
       />
       <p name="name" className="colorpicker-name">
         {colorName}
@@ -63,8 +56,8 @@ export function ColorPicker({ defaultValue, onChangeColor }) {
         name="hex"
         className="colorpicker-hex"
         type="text"
-        value={hex}
-        onChange={handleChangeField}
+        value={color}
+        onChange={handleChangeColor}
       />
     </div>
   );
