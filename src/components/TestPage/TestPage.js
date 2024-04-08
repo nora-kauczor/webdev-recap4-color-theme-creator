@@ -9,43 +9,39 @@ export function TestPage({ theme, onEscapePreview }) {
     onEscapePreview();
   }
   return (
-    <div>
-      <button className="closepreview_button" onClick={handleClick}>
+    <div className="testpage">
+      <button className="testpage-closepreview_button" onClick={handleClick}>
         Close Preview
       </button>
-      <h1 className="title" style={{ color: primaryColor.value }}>
+      <h1 className="testpage-title" style={{ color: primaryColor.value }}>
         {theme.name}
       </h1>
-      <article className="simple_paragraph">
-        <h2 className="simple_paragraph-headline">A Headline</h2>
-        <p className="simple_paragraph-text">
+      <article className="testpage-simple_paragraph">
+        <h2 className="testpage-simple_paragraph-headline">A Headline</h2>
+        <p className="testpage-simple_paragraph-text">
           Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
           nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
           sed diam voluptua. At vero eos et accusam et justo duo dolores et ea
           rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem
-          ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur
-          sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
-          dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam
-          et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea
-          takimata sanctus est Lorem ipsum dolor sit amet.
+          ipsum dolor sit amet.
         </p>
       </article>
       <article
-        className="hightlighted_paragraph"
+        className="testpage-hightlighted_paragraph"
         style={{ backgroundColor: secondaryColor.value }}
       >
-        <h2 className="hightlighted_paragraph-headline">A Hightlight Box</h2>
-        <p className="hightlighted_paragraph-text">
+        <h2 className="testpage-hightlighted_paragraph-headline">
+          A Hightlight Box
+        </h2>
+        <p className="testpage-hightlighted_paragraph-text">
           Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
           nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
           sed diam voluptua. At vero eos et accusam et justo duo dolores et ea
           rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem
-          ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur
-          sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
-          dolore magna aliquyam erat, sed diam voluptua.
+          ipsum dolor sit amet.
         </p>
       </article>
-      <ul className="style_buttons">
+      <ul className="testpage-style_buttons">
         <button
           className="style_buttons-contained_button"
           style={{ backgroundColor: surfaceOnColor.value }}
@@ -54,19 +50,19 @@ export function TestPage({ theme, onEscapePreview }) {
         </button>
 
         <button
-          className="style_buttons-outline_button"
+          className="testpage-style_buttons-outline_button"
           style={{ backgroundColor: surfaceColor.value }}
         >
           Outlined
         </button>
         <button
-          className="style_buttons-primary_button"
+          className="testpage-style_buttons-primary_button"
           style={{ backgroundColor: primaryColor.value }}
         >
           {primaryColor.role}
         </button>
         <button
-          className="style_buttons-secondary_button"
+          className="testpage-style_buttons-secondary_button"
           style={{ backgroundColor: secondaryColor.value }}
         >
           {secondaryColor.role}

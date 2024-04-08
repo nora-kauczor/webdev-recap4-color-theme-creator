@@ -1,11 +1,11 @@
 .header {
   height: 200px;
   margin: 20px;
-  background-color: lightgray;
+  background-color: var(--background-color);
   border-radius: 60px;
   display: flex;
   justify-content: center;
   align-items: center;
   font-family: var(--headline-font);
-  font-size: 4vh;
+  font-size: var(--headline-font-size);
 }

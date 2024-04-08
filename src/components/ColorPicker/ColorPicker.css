@@ -2,15 +2,17 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: var(--background-color);
 }
 
 .colorpicker-field {
   width: var(--width-color-box);
   height: var(--height-color-box);
   border-radius: var(--border-radius-color-box);
+  display: overflow;
 }
 .colorpicker-name {
-  font-size: 1vh;
+  font-size: 1rem;
 }
 .colorpicker-hex {
   margin: 1vh 2vw;
