@@ -4,10 +4,11 @@
 
 :root {
   --headline-font: "Rubik Scribble";
-
+  --headline-font-size: 4rem;
   --width-color-box: 20vw;
   --height-color-box: 9vh;
   --border-radius-color-box: 60px;
+  --background-color: rgb(238, 234, 234);
 }
 
 main {

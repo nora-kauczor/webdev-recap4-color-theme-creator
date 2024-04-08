@@ -8,7 +8,7 @@
 
 .theme-form-headline {
   font-family: var(--headline-font);
-  font-size: 3vh;
+  font-size: var(--headline-font-size);
   margin: 1vh 0vw 0vh 0vw;
 }
 

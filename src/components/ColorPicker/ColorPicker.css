@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: var(--background-color);
 }
 
 .colorpicker-field {
@@ -10,7 +11,7 @@
   border-radius: var(--border-radius-color-box);
 }
 .colorpicker-name {
-  font-size: 1vh;
+  font-size: 1rem;
 }
 .colorpicker-hex {
   margin: 1vh 2vw;
